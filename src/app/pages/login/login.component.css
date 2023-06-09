@@ -1,0 +1,16 @@
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 25px
+}
+
+.sign-in-button,
+.sign-up-button {
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 0 10px;
+  height: 8rem !important;
+  width: 10rem !important;
+
+}
