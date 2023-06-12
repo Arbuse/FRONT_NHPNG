@@ -23,6 +23,15 @@ import {PanelModule} from "primeng/panel";
 import {PasswordModule} from "primeng/password";
 import {PaginatorModule} from "primeng/paginator";
 import {DialogModule} from "primeng/dialog";
+import {CardModule} from "primeng/card";
+import {InputTextModule} from "primeng/inputtext";
+import {AccordionModule} from "primeng/accordion";
+import {TabViewModule} from "primeng/tabview";
+import {TableModule} from "primeng/table";
+import {AnimateModule} from "primeng/animate";
+import {SplitterModule} from "primeng/splitter";
+import {SidebarModule} from "primeng/sidebar";
+import {ImageModule} from "primeng/image";
 
 @NgModule({
   declarations: [
@@ -39,19 +48,28 @@ import {DialogModule} from "primeng/dialog";
     SingInComponent,
     UserProfileComponent
   ],
-    imports: [
-        BrowserModule,
-        ButtonModule,
-        NgbModule,
-        MenubarModule,
-        AppRoutingModule,
-        NgbCarouselModule,
-        BrowserAnimationsModule,
-        PanelModule,
-        PasswordModule,
-        PaginatorModule,
-        DialogModule
-    ],
+  imports: [
+    BrowserModule,
+    ButtonModule,
+    NgbModule,
+    MenubarModule,
+    AppRoutingModule,
+    NgbCarouselModule,
+    BrowserAnimationsModule,
+    PanelModule,
+    PasswordModule,
+    PaginatorModule,
+    DialogModule,
+    CardModule,
+    InputTextModule,
+    AccordionModule,
+    TabViewModule,
+    TableModule,
+    AnimateModule,
+    SplitterModule,
+    SidebarModule,
+    ImageModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
