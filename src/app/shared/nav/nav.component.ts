@@ -16,20 +16,16 @@ export class NavComponent {
         label: 'Home',
         routerLink: 'home'
       },
-      {
-        label: 'About Us',
-        items: [
-          { label: 'Contact Us', routerLink: 'about/contact' },
-          { label: 'Our Story', routerLink: 'about/our-story' },
-        ],
+
+      { label: 'Sing in',
+        routerLink: 'sing-in'
       },
-      {
-        label: 'Login',
-        items: [
-          { label: 'Sing in', routerLink: 'login/sing-in' },
-          { label: 'Sing up', routerLink: 'login/sing-up' },
-        ],
+
+      { label: 'Sing up',
+        routerLink: 'sing-up'
       },
+
+
     ];
   }
 

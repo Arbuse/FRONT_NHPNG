@@ -14,22 +14,19 @@ import {UserProfileComponent} from "./pages/user-profile/user-profile.component"
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
 
-  {
-    path: 'about',
-    component: AboutComponent,
-    children: [
-      { path: 'our-story', component: OurStoryComponent },
-      { path: 'contact', component: ContactComponent },
-    ],
+  // {
+  //   path: 'contact',
+  //   component: ContactComponent,
+  // },
+
+  { path: 'sing-in',
+    component: SingInComponent
   },
-  {
-    path: 'login',
-    component: LoginComponent,
-    children: [
-      { path: 'sing-in', component: SingInComponent},
-      { path: 'sing-up', component: SingUpComponent},
-    ],
+
+  { path: 'sing-up',
+    component: SingUpComponent
   },
+
   {
     path: 'user-profile',
     component: UserProfileComponent,

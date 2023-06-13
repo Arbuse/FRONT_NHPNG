@@ -17,20 +17,20 @@ export class AboutComponent {
   carouselsSlide(){
     this.carouselSlides = [
       {
-        imageUrl: '../../../assets/carousel/Pyramids_Garden_Al_Haram_Egypt.jpg',
+        imageUrl: '../../../assets/carousel/Civil_rights_march_on_Washingtop_1963.jpg',
         altText: 'Carousel slide 1',
         logoUrl: '',
-        title: 'Pyramids',
+        title: 'Civil rights',
         description:
-          'Pyramids Garden Al Haram Egypt',
+          'Civil rights march on Washington 1936',
       },
       {
-        imageUrl: '../../../assets/carousel/Ruins_of_Doric_Temple_of_Apollo_in_Ancient_Corinth_Greece.jpg',
+        imageUrl: '../../../assets/carousel/The_Horse_Guards_at_the_Battle_of_Waterloo_One_of_the_officers_having_killed_a_French_colonel_cuts_off_his_epaulette_in_triumph_1819.jpg',
         altText: 'Random second slide',
         logoUrl: '',
-        title: 'Bringing Up The Guns',
+        title: 'Battle of Waterloo',
         description:
-          'Ruins of Doric Temple of Apollo (6th c. B.C.) in Ancient Corinth Greece',
+          'The Horse Guards at the battle of Waterloo One of the officers having killed a French colonel cuts off his epaulette in trumph 1819',
       },
       {
         imageUrl: '../../../assets/carousel/The_Irish_envoy_1911.jpg',

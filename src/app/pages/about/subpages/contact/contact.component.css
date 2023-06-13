@@ -1,0 +1,32 @@
+.icon-container {
+  display: flex;
+  justify-content: center;
+  gap: 11rem;
+  margin-top: 2rem;
+}
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.full-height {
+  height: 19.7vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.component-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #343a40;
+}
+
+

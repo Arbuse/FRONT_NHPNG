@@ -1,4 +1,25 @@
 ::ng-deep .p-menubar {
   font-size: 1.2rem;
   font-weight: bold;
+  background-color: #343a40;
+  border-radius: unset;
+  border: unset;
 }
+::ng-deep .p-menubar .p-menuitem-link .p-menuitem-text{
+  color: rgba(204, 204, 204, 0.8) !important;
+}
+::ng-deep .p-menubar .p-menuitem-link {
+  color: rgba(204, 204, 204, 0.8) !important;
+}
+
+::ng-deep .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
+  border-radius: unset;
+}
+.sticky-header{
+
+  background: transparent;
+}
+.zindex{
+  z-index: 999;
+}
+
