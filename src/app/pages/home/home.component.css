@@ -113,11 +113,15 @@
   padding: 80px;
   font-size: 7.5rem;
   font-weight: bold;
-  /*color: rgba(204, 204, 204, 0.8);*/
   color: #ffffff;
+  background: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .text-left {
   text-align: left;
+}
+.zindex{
+  z-index: 1;
 }
 
 

@@ -16,7 +16,10 @@
   border-radius: unset;
 }
 .sticky-header{
-  z-index: 2;
+
   background: transparent;
+}
+.zindex{
+  z-index: 999;
 }
 
