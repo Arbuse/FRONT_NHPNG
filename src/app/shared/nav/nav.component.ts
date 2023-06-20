@@ -25,7 +25,6 @@ export class NavComponent {
         routerLink: 'sing-up'
       },
 
-
     ];
   }
 

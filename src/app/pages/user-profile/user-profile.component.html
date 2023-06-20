@@ -1,2 +1,132 @@
-<p>user-profile works!</p>
-<router-outlet>
+<div class="page-wrapper">
+<!--div na cala strone-->
+
+
+<div class="menu-wrapper">
+  <h2 class="header-game-mode"> Wybierz tryb gry</h2>
+  <div class="menu-buttons">
+  <p-button >Historia Polski</p-button>
+  <p-button >Historia Świata</p-button>
+  <p-button >Prehistoria</p-button>
+  <p-button >Historia średniowiecza</p-button>
+  <p-button >Czasy starożytne</p-button>
+  <p-button >Czasy nowożytne</p-button>
+  <p-button >Learnig mode</p-button>
+  </div>
+     <!-- menu buttons style gry -->
+</div>
+
+  <div class="button-container">
+    <p-button class="edit-button" (click)="showUserEditModal()">
+      <i class="pi pi-user-edit"></i>
+    </p-button>
+
+    <p-button class="right-edit-button" (click)="showRankingDialog()">
+      <i class="pi pi-users"></i>
+    </p-button>
+  </div>
+
+</div>
+
+<router-outlet></router-outlet>
+
+
+
+<p-dialog header="User edit profile" [closable]="false" [resizable]="false" [modal]="true" [maximizable]="false" appendTo="body" [(visible)]="userEditDialogVisible" >
+  <div class="dialog-content">
+    <div class="input-container">
+      <label for="username">Username:</label>
+      <input pInputText type="text" id="username" [(ngModel)]="username">
+    </div>
+    <div class="input-container">
+      <label for="desc">Description:</label>
+      <input pInputText type="text" id="desc" [(ngModel)]="description">
+    </div>
+
+    <div class="avatar-picker">
+      <label >Choose your avatar:</label>
+      <div class="avatar-buttons">
+        <button pButton type="button" class="avatar-button avatar-1" [ngClass]="{'selected-avatar': selectedAvatar === 'avatar1'}" (click)="selectAvatar('avatar1')"></button>
+        <button pButton type="button" class="avatar-button avatar-2" [ngClass]="{'selected-avatar': selectedAvatar === 'avatar2'}" (click)="selectAvatar('avatar2')"></button>
+        <button pButton type="button" class="avatar-button avatar-3" [ngClass]="{'selected-avatar': selectedAvatar === 'avatar3'}" (click)="selectAvatar('avatar3')"></button>
+        <button pButton type="button" class="avatar-button avatar-4" [ngClass]="{'selected-avatar': selectedAvatar === 'avatar4'}" (click)="selectAvatar('avatar4')"></button>
+        <button pButton type="button" class="avatar-button avatar-5" [ngClass]="{'selected-avatar': selectedAvatar === 'avatar5'}" (click)="selectAvatar('avatar5')"></button>
+        <button pButton type="button" class="avatar-button avatar-6" [ngClass]="{'selected-avatar': selectedAvatar === 'avatar6'}" (click)="selectAvatar('avatar6')"></button>
+        <button pButton type="button" class="avatar-button avatar-7" [ngClass]="{'selected-avatar': selectedAvatar === 'avatar7'}" (click)="selectAvatar('avatar7')"></button>
+        <button pButton type="button" class="avatar-button avatar-8" [ngClass]="{'selected-avatar': selectedAvatar === 'avatar8'}" (click)="selectAvatar('avatar8')"></button>
+        <button pButton type="button" class="avatar-button avatar-9" [ngClass]="{'selected-avatar': selectedAvatar === 'avatar9'}" (click)="selectAvatar('avatar9')"></button>
+
+      </div>
+    </div>
+
+    <div class="dialog-footer">
+      <button pButton type="button" label="Save" (click)="saveChanges()" class="save-button"></button>
+      <button pButton type="button" label="Cancel" (click)="close()" class="cancel-button"></button>
+    </div>
+  </div>
+</p-dialog>
+
+
+
+
+
+
+<p-dialog header="Player Ranking" [resizable]="false" [modal]="true" [maximizable]="true" appendTo="body" [(visible)]="rankingDialogVisible" [style]="{width: '75vw'}" [contentStyle]="{height: '600px'}">
+  <p-table
+    #dt1
+    [value]="customers"
+    dataKey="id"
+    [rows]="10"
+    [showCurrentPageReport]="true"
+    [paginator]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['name', 'points']"
+    [tableStyle]="{ 'min-width': '25rem' }"
+  >
+
+    <ng-template pTemplate="caption">
+      <div class="icon-bar">
+        <i class="pi pi-search "></i>
+        <input  pInputText type="text" [(ngModel)]="search" (input)="filterTable()" placeholder="Search keyword" />
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="min-width:15rem">
+          <div class="flex align-items-center">
+            Name
+          </div>
+        </th>
+        <th style="min-width:15rem">
+          <div class="flex align-items-center">
+            Profile
+          </div>
+        </th>
+        <th style="min-width:10rem">
+          <div class="flex align-items-center">
+            Points
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer>
+      <tr>
+        <td>
+          {{ customer.name }}
+        </td>
+        <td>
+          <span class="ml-1 vertical-align-middle">{{ customer.name }}</span>
+        </td>
+        <td>
+          {{ customer.points }}
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="3">No customers found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-dialog>

@@ -7,19 +7,7 @@ import {Slide} from "../../shared/carousel/slide";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  value: string= "asdfasdf";
   carouselSlides!: Slide[];
-  password: string = "";
-  visibleSignIn: boolean = false;
-  visibleSignUp: boolean = false;
-
-
-  showSignUpDialog() {
-    this.visibleSignIn = true;
-  }
-  showSingInDialog() {
-    this.visibleSignUp = true;
-  }
 
   ngOnInit(): void{
     this.carouselsSlide();

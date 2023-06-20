@@ -46,7 +46,7 @@ import {ImageModule} from "primeng/image";
     LoginComponent,
     SingUpComponent,
     SingInComponent,
-    UserProfileComponent
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
