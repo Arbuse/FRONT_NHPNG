@@ -1,19 +1,19 @@
 <div class="page-wrapper">
-<!--div na cala strone-->
 
 
 <div class="menu-wrapper">
-  <h2 class="header-game-mode"> Wybierz tryb gry</h2>
+  <h2 class="header-game-mode" >{{modalTitle}} </h2>
+  <h2 class="header-game-mode">Choose the game mode</h2>
   <div class="menu-buttons">
-  <p-button >Historia Polski</p-button>
-  <p-button >Historia Świata</p-button>
-  <p-button >Prehistoria</p-button>
-  <p-button >Historia średniowiecza</p-button>
-  <p-button >Czasy starożytne</p-button>
-  <p-button >Czasy nowożytne</p-button>
-  <p-button >Learnig mode</p-button>
+    <p-button (click)="getQuestionsByTyp('HP')">Polish History</p-button>
+    <p-button (click)="getQuestionsByTyp('HS')">World History</p-button>
+    <p-button (click)="getQuestionsByTyp('PA')">Prehistory</p-button>
+    <p-button (click)="getQuestionsByTyp('SE')">Medieval History</p-button>
+    <p-button (click)="getQuestionsByTyp('SC')">Ancient Times</p-button>
+    <p-button (click)="getQuestionsByTyp('NC')">Modern Times</p-button>
+    <p-button (click)="getQuestionsInLearningMode()">Learning Mode</p-button>
   </div>
-     <!-- menu buttons style gry -->
+
 </div>
 
   <div class="button-container">

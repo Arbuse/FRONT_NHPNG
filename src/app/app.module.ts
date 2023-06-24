@@ -32,6 +32,11 @@ import {AnimateModule} from "primeng/animate";
 import {SplitterModule} from "primeng/splitter";
 import {SidebarModule} from "primeng/sidebar";
 import {ImageModule} from "primeng/image";
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {DividerModule} from "primeng/divider";
+import {ToastModule} from "primeng/toast";
+import {RippleModule} from "primeng/ripple";
 
 @NgModule({
   declarations: [
@@ -49,6 +54,9 @@ import {ImageModule} from "primeng/image";
     UserProfileComponent,
   ],
   imports: [
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
     BrowserModule,
     ButtonModule,
     NgbModule,
@@ -68,7 +76,10 @@ import {ImageModule} from "primeng/image";
     AnimateModule,
     SplitterModule,
     SidebarModule,
-    ImageModule
+    ImageModule,
+    DividerModule,
+    ToastModule,
+    RippleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,6 +15,7 @@
 .menu-wrapper {
   text-align: center;
   margin-bottom: 1rem;
+  padding-top: 100px;
 }
 
 .page-wrapper {
@@ -180,7 +181,7 @@
   background-image: url('src/assets/avatars/female-avatar-2.jpg');
 }
 .avatar-button.avatar-8 {
-  background-image: url('src/assets/avatars/female-avatar-3.png');
+  background-image: url('src/assets/avatars/female-avatar-2.jpg');
 }
 .avatar-button.avatar-9 {
   background-image: url('src/assets/avatars/female-avatar-4.jpg');
