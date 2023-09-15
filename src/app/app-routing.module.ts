@@ -7,8 +7,8 @@ import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import {SingInComponent} from "./pages/login/sing-in/sing-in.component";
 import {SingUpComponent} from "./pages/login/sing-up/sing-up.component";
 import {NgModule} from "@angular/core";
-import {LoginComponent} from "./pages/login/login.component";
 import {UserProfileComponent} from "./pages/user-profile/user-profile.component";
+import {QuizComponent} from "./pages/quiz/quiz.component";
 
 
 const routes: Routes = [
@@ -16,6 +16,10 @@ const routes: Routes = [
 
   { path: 'sing-in',
     component: SingInComponent,
+  },
+
+  { path: 'quiz',
+    component: QuizComponent,
   },
 
   { path: 'sing-up',

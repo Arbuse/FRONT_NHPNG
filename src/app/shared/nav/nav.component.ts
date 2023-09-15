@@ -13,15 +13,15 @@ export class NavComponent {
   ngOnInit(){
     this.items = [
       {
-        label: 'Home',
+        label: 'Strona główna',
         routerLink: 'home'
       },
 
-      { label: 'Sing in',
+      { label: 'Zaloguj się',
         routerLink: 'sing-in'
       },
 
-      { label: 'Sing up',
+      { label: 'Zarejestruj się',
         routerLink: 'sing-up'
       },
 

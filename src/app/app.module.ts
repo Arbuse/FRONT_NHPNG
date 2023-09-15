@@ -37,6 +37,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {DividerModule} from "primeng/divider";
 import {ToastModule} from "primeng/toast";
 import {RippleModule} from "primeng/ripple";
+import { QuizComponent } from './pages/quiz/quiz.component';
+import {RadioButtonModule} from "primeng/radiobutton";
+import {ProgressBarModule} from "primeng/progressbar";
 
 @NgModule({
   declarations: [
@@ -52,6 +55,7 @@ import {RippleModule} from "primeng/ripple";
     SingUpComponent,
     SingInComponent,
     UserProfileComponent,
+    QuizComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -79,7 +83,9 @@ import {RippleModule} from "primeng/ripple";
     ImageModule,
     DividerModule,
     ToastModule,
-    RippleModule
+    RippleModule,
+    RadioButtonModule,
+    ProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

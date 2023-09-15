@@ -1,11 +1,11 @@
 <div class="carousel-footer">
   <div class="grid">
     <div class="col-12">
-      <div style="color: white" class="centered-title">Sign up</div>
+      <div style="color: white" class="centered-title">Zarejestruj się</div>
     </div>
     <form [formGroup]="formGroup" (ngSubmit)="register()">
       <div>
-        <label style="color: white">Username:</label>
+        <label style="color: white">Nazwa użytkownika:</label>
         <input type="text" pInputText formControlName="username">
       </div>
       <div>
@@ -13,7 +13,7 @@
         <input type="text" pInputText formControlName="email">
       </div>
       <div>
-        <label style="color: white">Password:</label>
+        <label style="color: white">Hasło:</label>
         <div class="card flex justify-content-center">
           <p-password formControlName="password">
             <ng-template pTemplate="header">
@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="button-container">
-        <p-button [disabled]="!isFormValid" type="submit" class="login-button">Sign up</p-button>
+        <p-button [disabled]="!isFormValid" type="submit" class="login-button">Zarejestruj się</p-button>
       </div>
     </form>
   </div>
