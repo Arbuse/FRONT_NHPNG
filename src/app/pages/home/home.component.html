@@ -1,116 +1,43 @@
-<!--<ngb-carousel>-->
-<!--  <ng-template ngbSlide *ngFor="let slide of carouselSlides">-->
-<!--    <div class="picsum-img-wrapper wrapper">-->
-<!--      <img [src]="slide.imageUrl" [alt]="slide.altText" />-->
-<!--    </div>-->
-
-<!--    <div class="carousel-caption">-->
-<!--      <div class="logo-wrapper" *ngIf="slide.logoUrl">-->
-<!--        <img [src]="slide.logoUrl" alt="logo" />-->
-<!--      </div>-->
-<!--      <div class="carousel-description">-->
-<!--        <h3>{{ slide.title }}</h3>-->
-<!--        <p>{{ slide.description }}</p>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </ng-template>-->
-<!--</ngb-carousel>-->
-
-
-
-<!-- our story margin bottom równe na calym footerze-->
-<!-- cos typu dolacz do nas zakladka log in-->
-<!-- F&Q pod footerem -->
-
-
-
-<!--<div class="card">-->
-<!--  <p-splitter [panelSizes]="[25, 75]" [style]="{ height: '300px' }" >-->
-<!--    <ng-template pTemplate>-->
-<!--      <div class="col flex align-items-center justify-content-center">Panel 1</div>-->
-<!--    </ng-template>-->
-<!--    <ng-template pTemplate>-->
-<!--      <div class="col flex align-items-center justify-content-center">Panel 2</div>-->
-<!--    </ng-template>-->
-<!--  </p-splitter>-->
-<!--</div>-->
-
-
-<!--<div class="card">-->
-<!--<p-splitter [style]="{ height: '300px' }" styleClass="mb-5" layout="vertical">-->
-<!--  <ng-template pTemplate>-->
-<!--    <div class="col flex align-items-center justify-content-center">Panel 1</div>-->
-<!--  </ng-template>-->
-<!--  <ng-template pTemplate>-->
-<!--    <div class="col flex align-items-center justify-content-center">Panel 2</div>-->
-<!--  </ng-template>-->
-<!--</p-splitter>-->
-<!--</div>-->
-
-
-
-
-
 
 <div class="carousel-footer">
   <h2 class="text-center pocket-title" style="padding-top: 150px;">PocketHistory</h2>
-  <h2 class="text-center ranking-title" style="padding-top: 90px;">Frequency Questions and Answers</h2>
+  <h2 class="text-center ranking-title" style="padding-top: 90px;">Najczęściej zadawane pytania i odpowiedzi</h2>
   <div class="container">
     <div class="center-content">
       <div  style="width: 60rem;">
         <div class="zindex">
           <p-accordion [activeIndex]="0"  class="text-left" >
-            <p-accordionTab header="How to play?" >
-              <p >TEST</p>
+            <p-accordionTab header="Jak rozpocząć grę?" >
+              <p>
+                Aby rozpocząć grę, musisz się najpierw zarejestrować, a następnie wybrać tryb gry.</p>
             </p-accordionTab>
-            <p-accordionTab header="How to change user data">
-              <p> TEST</p>
+            <p-accordionTab header="Jak edytować profil użytkownika?">
+              <p>Aby zmienić ustawienia profilu należy otworzyć moduł edycji profilu w panelu gry po lewej stronie.</p>
             </p-accordionTab>
-            <p-accordionTab header="What type of questions we offer?">
-              <p> TEST</p>
+            <p-accordionTab header="Jakiego rodzaju pytania są w grze?">
+              <p>
+               W grze znajdują się pytania z zakresu historii świata, historii Polski, prahistorii, średniowiecza, nowożytności, starożytności.</p>
             </p-accordionTab>
-            <p-accordionTab header="How to create an account">
-              <p>TEST</p>
+            <p-accordionTab header="Jak utworzyć konto">
+              <p>Aby założyć konto należy się zarejestrować, w lewym górnym rogu przycisku zapisz się.</p>
             </p-accordionTab>
-            <p-accordionTab header="How does the learning mode work?">
-              <p>TEST</p>
-            </p-accordionTab>
-            <p-accordionTab header="When does the learning mode reset?">
-              <p>TSET</p>
+            <p-accordionTab header="Jak działa tryb uczący">
+              <p>Tryb nauki polega na zbieraniu pytań ze wszystkich trybów gry i na podstawie poprawnych i niepoprawnych odpowiedzi częściej wybiera pytania, na które odpowiedziałeś.</p>
             </p-accordionTab>
           </p-accordion>
         </div>
       </div>
     </div>
   </div>
-<!--  <h2 class="text-center ranking-title">Users Rank</h2>-->
-<!--  <div class="table-container d-flex justify-content-center">-->
 
-<!--  <p-table [value]="user" [scrollable]="true" scrollHeight="600px"  class="custom-table">-->
-<!--    <ng-template pTemplate="header">-->
-<!--      <tr>-->
-<!--        <th>Username</th>-->
-<!--        <th>Points</th>-->
-<!--        <th>Games</th>-->
-<!--      </tr>-->
-<!--    </ng-template>-->
-<!--    <ng-template pTemplate="body" let-user>-->
-<!--      <tr>-->
-<!--        <td>{{ user.username }}</td>-->
-<!--        <td>{{ user.points }}</td>-->
-<!--        <td>{{ user.games }}</td>-->
-<!--      </tr>-->
-<!--    </ng-template>-->
-<!--  </p-table>-->
-<!--</div>-->
 
   <div style="padding-top: 150px">
-    <h2 class="text-center ranking-title">About Us</h2>
+    <h2 class="text-center ranking-title">Czym jest PocketHistory?</h2>
     <div class="container">
 
       <div class="about-content">
         <p>
-          Jestem aplikacją edukacyjną, która umożliwia naukę historii poprzez skoncentrowane nauczanie. Możesz zdobyć wiedzę z zakresu prehistorii, średniowiecza, czasów nowożytnych, starożytności oraz historii Polski.
+          PocketHistory to aplikacja edukacyjna, która umożliwia naukę historii poprzez skoncentrowane nauczanie. Możesz zdobyć wiedzę z zakresu prehistorii, średniowiecza, czasów nowożytnych, starożytności oraz historii Polski.
         </p>
         <p>
           Dzięki moim interaktywnym lekcjom i materiałom edukacyjnym, będziesz mógł zgłębić różne okresy historyczne i poszerzyć swoją wiedzę na temat wydarzeń, postaci i kultur, które miały wpływ na naszą przeszłość. Oferuję różnorodne zasoby, takie jak teksty, obrazy, filmy i quizy, które pomogą Ci zrozumieć i zapamiętać najważniejsze informacje.

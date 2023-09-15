@@ -2,21 +2,27 @@
 <div class="carousel-footer">
   <div class="grid">
     <div class="col-12">
-      <div  style="color: white" class="centered-title">Sign in</div>
+      <div style="color: white" class="centered-title">Zaloguj się</div>
     </div>
-    <div>
-      <label  style="color: white" for="email">Email:</label>
-      <input type="text" id="email" pInputText>
-    </div>
-    <div>
-      <label style="color: white" for="password">Password:</label>
-      <input type="password" id="password" pInputText>
-    </div>
-    <div class="button-container">
-      <p-button (onClick)="login()" label="Log in" class="login-button"></p-button> <!-- redirect to UserProfileComponent-->
+    <form [formGroup]="formGroup" (ngSubmit)="login()">
+      <div>
+        <label style="color: white" for="email">Email:</label>
+        <input type="text" id="email" pInputText formControlName="email">
+      </div>
+      <div>
+        <label style="color: white" for="password">Hasło:</label>
+        <input type="password" id="password" pInputText formControlName="password">
+      </div>
+      <div class="button-container">
+        <p-button [disabled]="!formGroup.valid" type="submit" label="Log in" class="login-button"></p-button>
+      </div>
+    </form>
+    <div class="col-12">
+      <p-toast key="toastFailed"></p-toast>
     </div>
   </div>
 </div>
+
 
 
 

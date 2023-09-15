@@ -8,13 +8,13 @@
   padding: 80px;
   font-size: 2.5rem;
   font-weight: bold;
-  /*color: rgba(204, 204, 204, 0.8);*/
   color: #ffffff;
 }
 
 .menu-wrapper {
   text-align: center;
   margin-bottom: 1rem;
+  padding-top: 100px;
 }
 
 .page-wrapper {
@@ -25,46 +25,6 @@
   background-position: center;
   height: 100VH;
 }
-
-
-
-/*.edit-button {*/
-/*  margin-top: 8rem;*/
-/*  margin-left: 3rem;*/
-/*  position: sticky;*/
-/*  border: none;*/
-/*  width: 40px;*/
-/*  height: 40px;*/
-/*  border-radius: 50%;*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  justify-content: center;*/
-/*  cursor: pointer;*/
-/*}*/
-
-/*.edit-button i {*/
-/*  color: #555555;*/
-/*  font-size: 20px;*/
-/*}*/
-
-/*.rank-button {*/
-/*  margin-bottom: 8rem;*/
-/*  margin-right: 3rem;*/
-/*  position: sticky;*/
-/*  border: none;*/
-/*  width: 40px;*/
-/*  height: 40px;*/
-/*  border-radius: 50%;*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  justify-content: center;*/
-/*  cursor: pointer;*/
-/*}*/
-
-/*.rank-button i {*/
-/*  color: #555555;*/
-/*  font-size: 20px;*/
-/*}*/
 
 .button-container {
   display: flex;
@@ -113,11 +73,10 @@
 .table-footer{
   padding: 120px;
 }
- /*
- usereditmodal css
- */
+
 .dialog-content {
   padding: 12px;
+  width: 500px;
 }
 
 .input-container label {
@@ -139,7 +98,9 @@
 .avatar-buttons {
   margin-top: 15px;
   display: flex;
-  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
 }
 
 .avatar-button {
@@ -158,32 +119,6 @@
 
 .avatar-button.avatar-2 {
   background-image: url('src/assets/avatars/female-avatar-1.jpg');
-}
-
-.avatar-button.avatar-3 {
-  background-image: url('src/assets/avatars/male-female-avatar.jpg');
-}
-
-.avatar-button.avatar-4 {
-  background-image: url('src/assets/avatars/male-avatar-2.jpg');
-}
-
-.avatar-button.avatar-5 {
-  background-image: url('src/assets/avatars/male-avatar-3.jpg');
-}
-
-.avatar-button.avatar-6 {
-  background-image: url('src/assets/avatars/male-avatar-4.jpg');
-}
-
-.avatar-button.avatar-7 {
-  background-image: url('src/assets/avatars/female-avatar-2.jpg');
-}
-.avatar-button.avatar-8 {
-  background-image: url('src/assets/avatars/female-avatar-3.png');
-}
-.avatar-button.avatar-9 {
-  background-image: url('src/assets/avatars/female-avatar-4.jpg');
 }
 
 .avatar-button:hover {

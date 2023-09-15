@@ -1,55 +1,43 @@
-<!--<div class="full-width-image">-->
-<!--  <img src="../../../assets/carousel/Falcon_Heavy_rocket_test_flight.jpg" >-->
-<!--  <div class="login-modal">-->
-<!--    <div class="grid login-modal">-->
-<!--      <p-card [style]="{ 'width': '360px', 'margin-bottom': '2rem','background-color': 'transparent' }">-->
-<!--        <div class="grid">-->
-<!--          <div class="col-12">-->
-<!--            <div  style="color: white" class="centered-title">Sign up</div>-->
-<!--          </div>-->
-<!--          <div>-->
-<!--            <label  style="color: white" for="username">Username:</label>-->
-<!--            <input type="text" id="username" pInputText>-->
-<!--          </div>-->
-<!--          <div>-->
-<!--            <label style="color: white" for="email">Email:</label>-->
-<!--            <input type="text" id="email" pInputText>-->
-<!--          </div>-->
-<!--          <div>-->
-<!--            <label style="color: white" for="password">Password:</label>-->
-<!--            <input type="password" id="password" pInputText>-->
-<!--          </div>-->
-<!--          <div class="button-container">-->
-<!--            <p-button label="Sign up" class="login-button"></p-button>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </p-card>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
 <div class="carousel-footer">
   <div class="grid">
-      <div class="col-12">
-        <div  style="color: white" class="centered-title">Sign up</div>
+    <div class="col-12">
+      <div style="color: white" class="centered-title">Zarejestruj się</div>
+    </div>
+    <form [formGroup]="formGroup" (ngSubmit)="register()">
+      <div>
+        <label style="color: white">Nazwa użytkownika:</label>
+        <input type="text" pInputText formControlName="username">
       </div>
       <div>
-        <label  style="color: white" for="username">Username:</label>
-        <input type="text" id="username" pInputText>
+        <label style="color: white">Email:</label>
+        <input type="text" pInputText formControlName="email">
       </div>
       <div>
-        <label style="color: white" for="email">Email:</label>
-        <input type="text" id="email" pInputText>
-      </div>
-      <div>
-        <label style="color: white" for="password">Password:</label>
-        <input type="password" id="password" pInputText>
+        <label style="color: white">Hasło:</label>
+        <div class="card flex justify-content-center">
+          <p-password formControlName="password">
+            <ng-template pTemplate="header">
+              <h6>Pick a password</h6>
+            </ng-template>
+            <ng-template pTemplate="footer">
+              <p-divider></p-divider>
+              <p class="mt-2">Suggestions</p>
+              <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                <li>At least one lowercase</li>
+                <li>At least one uppercase</li>
+                <li>Minimum 5 characters</li>
+              </ul>
+            </ng-template>
+          </p-password>
+        </div>
       </div>
       <div class="button-container">
-        <p-button label="Sign up" class="login-button"></p-button> <!--redirect to sing in component-->
+        <p-button [disabled]="!isFormValid" type="submit" class="login-button">Zarejestruj się</p-button>
       </div>
-    </div>
+    </form>
+  </div>
 </div>
+
 
 <router-outlet></router-outlet>
 

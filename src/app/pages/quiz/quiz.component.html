@@ -1,0 +1,27 @@
+<div class="page-wrapper">
+
+  <div class="menun-wrapper" *ngIf="!isQuizComplete">
+    <h2 class="header-game-mode">{{ questions[currentQuestionIndex]?.tresc_pytania }}</h2>
+    <div class="menu-buttons">
+      <p-button class="answer-button" *ngFor="let odpowiedz of questions[currentQuestionIndex]?.odpowiedzi"
+                type="button" (click)="selectAnswer(odpowiedz)">{{ odpowiedz }}</p-button>
+      <!-- Wyświetl opcje odpowiedzi jako zwykłe przyciski -->
+    </div>
+  </div>
+
+  <div class="completeQuiz" *ngIf="isQuizComplete">
+    <p class="complete-quiz-header">Zakończyłeś quiz!</p>
+    <p class="complete-quiz-header">Twoje punkty: {{ points }} / {{ questions.length }}</p>
+    <div class="restartButton">
+      <p-button (click)="restartQuiz()">Zresetuj quiz</p-button>
+      <p-button (click)="backToUserProfile()">Zakończ</p-button>
+    </div>
+  </div>
+
+  <div class="nextQuestion" *ngIf="!isQuizComplete">
+    <p-button [disabled]="!selectedAnswer" (click)="nextQuestion()">Następne pytanie</p-button>
+    <!-- Przycisk do przejścia do następnego pytania -->
+  </div>
+
+</div>
+

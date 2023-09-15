@@ -1,23 +1,60 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {UserService} from "../user-service/user.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-sing-in',
   templateUrl: './sing-in.component.html',
-  styleUrls: ['./sing-in.component.css']
+  styleUrls: ['./sing-in.component.css'],
+  providers: [MessageService]
 })
-export class SingInComponent {
+export class SingInComponent implements OnInit {
 
+  formGroup!: FormGroup;
+  password!: string;
+  email!: string;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+              private userService: UserService,
+              private formBuilder: FormBuilder,
+              private messageService: MessageService) {
+  }
+
+  ngOnInit() {
+    this.formGroup = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+    });
+  }
+
 
   login() {
-    // Tu umieść kod logiki autoryzacji, np. wywołaj API, sprawdź dane logowania itp.
+    if (this.formGroup.valid) {
+      this.email = this.formGroup.get('email')?.value;
+      this.password = this.formGroup.get('password')?.value;
 
-    const authenticationSuccessful = true; // Przykładowa zmienna określająca, czy autoryzacja się powiodła
+      this.userService.getAuthorization(this.password, this.email).subscribe(userId => {
+        if (userId !== null) {
+          localStorage.setItem('userId', userId.toString());
+          this.router.navigate(['/user-profile']);
+          console.log(userId);
 
-    if (authenticationSuccessful) {
-      this.router.navigate(['/user-profile']); // Przekierowanie do UserProfileComponent
+        } else {
+          this.showToastLoginFailed();
+        }
+      });
     }
+  }
+
+  private showToastLoginSucces() {
+    this.messageService.clear();
+    this.messageService.add({ key: 'toastSucces', severity: 'success', summary: 'Success', detail: '' });
+  }
+
+  private showToastLoginFailed() {
+    this.messageService.clear();
+    this.messageService.add({ key: 'toastFailed', severity: 'warn', summary: 'Warning', detail: 'Incorrect login or password' });
   }
 }

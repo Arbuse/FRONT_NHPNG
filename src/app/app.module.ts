@@ -32,6 +32,14 @@ import {AnimateModule} from "primeng/animate";
 import {SplitterModule} from "primeng/splitter";
 import {SidebarModule} from "primeng/sidebar";
 import {ImageModule} from "primeng/image";
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {DividerModule} from "primeng/divider";
+import {ToastModule} from "primeng/toast";
+import {RippleModule} from "primeng/ripple";
+import { QuizComponent } from './pages/quiz/quiz.component';
+import {RadioButtonModule} from "primeng/radiobutton";
+import {ProgressBarModule} from "primeng/progressbar";
 
 @NgModule({
   declarations: [
@@ -47,8 +55,12 @@ import {ImageModule} from "primeng/image";
     SingUpComponent,
     SingInComponent,
     UserProfileComponent,
+    QuizComponent,
   ],
   imports: [
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
     BrowserModule,
     ButtonModule,
     NgbModule,
@@ -68,7 +80,12 @@ import {ImageModule} from "primeng/image";
     AnimateModule,
     SplitterModule,
     SidebarModule,
-    ImageModule
+    ImageModule,
+    DividerModule,
+    ToastModule,
+    RippleModule,
+    RadioButtonModule,
+    ProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

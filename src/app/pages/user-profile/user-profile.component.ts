@@ -1,12 +1,19 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Table} from "primeng/table";
+import {UserProfileService} from "./service/user-profile.service";
+import {Router} from "@angular/router";
+import {UserService} from "../login/user-service/user.service";
+import {User} from "../login/user-service/model/user";
+import {MessageService} from "primeng/api";
+import {UserEdit} from "../login/user-service/model/user-edit";
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  styleUrls: ['./user-profile.component.css'],
+  providers: [MessageService]
 })
-export class UserProfileComponent implements OnInit{
+export class UserProfileComponent implements OnInit {
 
   @ViewChild('dt1') dt1!: Table;
 
@@ -14,34 +21,93 @@ export class UserProfileComponent implements OnInit{
   description: string = '';
   selectedAvatar: string = '';
   userEditDialogVisible: boolean = false;
+  userId!: number;
 
 
+  modalTitle!: string;
   search: string = '';
   rankingDialogVisible: boolean = false;
+  ranking: any = [];
 
+  male: string = 'assets/avatars/male-avatar-1.jpg'
+  female: string = 'assets/avatars/female-avatar-1.jpg'
 
-
-  customers: any[] = [
-    {name: 'Amy Elsner', image: '', points: 85},
-    {name: 'Anna Fali', image: '', points: 72},
-    {name: 'Asiya Javayant', image: '', points: 93},
-    {name: 'Bernardo Dominic', image: '', points: 68},
-    {name: 'Elwin Sharvill', image: '', points: 77},
-    {name: 'Ioni Bowcher', image: '', points: 91},
-    {name: 'Ivan Magalhaes', image: '', points: 82},
-    {name: 'Onyama Limba', image: '', points: 55},
-    {name: 'Stephen Shaw', image: '', points: 88},
-    {name: 'Xuxue Feng', image: '', points: 79}
-  ];
-
-  ngOnInit() {
+  constructor(private userProfileService: UserProfileService,
+              private userService: UserService,
+              private router: Router,
+              private messageService: MessageService) {
   }
 
+
+  learningQuiz() {
+    if (this.userId !== null) {
+      this.router.navigate(['/quiz']);
+      localStorage.setItem('typ', 'LM')
+    } else {
+      this.showQuizFailed()
+    }
+  }
+
+  quiz(typ: string) {
+    if (this.userId !== null) {
+      this.router.navigate(['/quiz']);
+      localStorage.setItem('typ', typ);
+    } else {
+      this.showQuizFailed()
+    }
+  }
+
+  private showQuizFailed() {
+    this.messageService.clear();
+    this.messageService.add({
+      key: 'toastFailed',
+      severity: 'warn',
+      summary: 'Warning',
+      detail: 'Quiz has encountered problems reconnecting'
+    });
+  }
+
+  ngOnInit() {
+
+    this.userId = parseInt(localStorage.getItem('userId') || '0', 10);
+    this.userService.getUserById(this.userId).subscribe(
+      (user: User) => {
+        this.username = user.username;
+        this.description = user.desc;
+        this.modalTitle = `Witaj z powrotem ${this.username}`;
+        this.selectedAvatar = user.avatar;
+      },
+      (error: any) => {
+      }
+    );
+
+    this.userService.getRankning().subscribe(
+      (ranking: User[]) => {
+        this.ranking = ranking;
+      },
+      (error: any) => {
+        // Obsługa błędu
+      }
+    );
+  }
+
+
   showRankingDialog() {
+    this.getCurrentUser()
+    this.userService.getRankning().subscribe(
+      (ranking: User[]) => {
+        this.ranking = ranking;
+      },
+      (error: any) => {
+        // Obsługa błędu
+      }
+    );
+
     this.rankingDialogVisible = true;
   }
 
-  showUserEditModal(){
+  showUserEditModal() {
+    this.getCurrentUser();
     this.userEditDialogVisible = true;
   }
 
@@ -49,17 +115,42 @@ export class UserProfileComponent implements OnInit{
     this.dt1.filterGlobal(this.search, 'contains');
   }
 
-  close(){
+  close() {
     this.clearDataFromUserProfile();
     this.userEditDialogVisible = false;
   }
 
   saveChanges() {
-    console.log('Zapisano zmiany:');
-    console.log('Username:', this.username);
-    console.log('Description:', this.description);
-    console.log('Selected Avatar:', this.selectedAvatar);
+
+    const userEdit: UserEdit = {
+      username: this.username,
+      desc: this.description,
+      avatar: this.selectedAvatar
+    };
+
+    this.userService.updateUser(userEdit,this.userId).subscribe(
+      (respoonse: any) => {
+        console.log("zedytowalem uzytkownika");
+      },
+      (error: any) => {
+        this.showEditFailed();
+      }
+    );
+    this.modalTitle = `Witaj z powrotem ${this.username}`;
     this.close();
+  }
+
+  private getCurrentUser(){
+    this.userService.getUserById(this.userId).subscribe(
+      (user: User) => {
+        this.username = user.username;
+        this.selectedAvatar = user.avatar;
+        this.modalTitle = `Witaj z powrotem ${this.username}`;
+        this.description = user.desc;
+      },
+      (error: any) => {
+      }
+    );
   }
 
 
@@ -72,8 +163,15 @@ export class UserProfileComponent implements OnInit{
 
 
   selectAvatar(avatar: string) {
-    this.selectedAvatar = avatar;
+    if(avatar == 'avatar1'){
+      this.selectedAvatar = this.male;
+    } else if (avatar == 'avatar2')  {
+      this.selectedAvatar = this.female;
+    }
   }
 
-
+  private showEditFailed() {
+    this.messageService.clear();
+    this.messageService.add({ key: 'toastFailed', severity: 'warn', summary: 'Warning', detail: 'The program encountered an error while trying to edit a user' });
+  }
 }
