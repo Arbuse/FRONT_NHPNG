@@ -1,6 +1,6 @@
 <div class="page-wrapper">
 
-  <div class="menun-wrapper" *ngIf="!isQuizComplete">
+  <div class="menu-wrapper" *ngIf="!isQuizComplete">
     <h2 class="header-game-mode">{{ questions[currentQuestionIndex]?.tresc_pytania }}</h2>
     <div class="menu-buttons">
       <p-button class="answer-button" *ngFor="let odpowiedz of questions[currentQuestionIndex]?.odpowiedzi"
@@ -10,8 +10,20 @@
   </div>
 
   <div class="completeQuiz" *ngIf="isQuizComplete">
-    <p class="complete-quiz-header">Zakończyłeś quiz!</p>
-    <p class="complete-quiz-header">Twoje punkty: {{ points }} / {{ questions.length }}</p>
+    <p class="complete-quiz-header" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Zakończyłeś quiz!</p>
+    <p class="complete-quiz-header" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)"> Twoje punkty: {{ points }} / {{ questions.length }}</p>
+
+    <div *ngIf="niepoprawneOdpowiedzi.length > 0">
+      <p class="complete-quiz-summary" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Niepoprawne odpowiedzi:</p>
+      <ul>
+        <li class="complete-quiz-summary" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)" *ngFor="let niepoprawnaOdpowiedz of niepoprawneOdpowiedzi">
+          <p>{{ niepoprawnaOdpowiedz.pytanie }}</p>
+          <p>Twoja odpowiedź: {{ niepoprawnaOdpowiedz.odpowiedz }}</p>
+          <p>Poprawna odpowiedź: {{ niepoprawnaOdpowiedz.poprawnaOdpowiedz }}</p>
+        </li>
+      </ul>
+    </div>
+
     <div class="restartButton">
       <p-button (click)="restartQuiz()">Zresetuj quiz</p-button>
       <p-button (click)="backToUserProfile()">Zakończ</p-button>
