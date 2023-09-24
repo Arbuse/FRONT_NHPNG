@@ -4,13 +4,13 @@
   </div>
 
 <div class="menu-wrapper">
-  <h2 class="header-game-mode" >{{modalTitle}} </h2>
-  <h2 class="header-game-mode">Wybierz tryb gry</h2>
+  <h2 class="header-game-mode" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">{{modalTitle}} </h2>
+  <h2 class="header-game-mode" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Wybierz tryb gry</h2>
   <div class="menu-buttons">
     <p-button (click)="quiz('HP')">Historia Polski</p-button>
     <p-button (click)="quiz('HS')">Historia świata</p-button>
     <p-button (click)="quiz('PA')">Prehistoria</p-button>
-    <p-button (click)="quiz('SE')">Czasy nowożytne</p-button>
+    <p-button (click)="quiz('SE')">Średniowiecze</p-button>
     <p-button (click)="quiz('SC')">Starożytność</p-button>
     <p-button (click)="quiz('NC')">Czasy współczesne</p-button>
     <p-button (click)="learningQuiz()">Tryb uczący</p-button>
@@ -88,7 +88,7 @@
     <ng-template pTemplate="header">
       <tr>
         <th style="min-width:15rem">
-          <div class="flex align-items-center">
+          <div class="flex align-items-center" >
             Nazwa użytkownika
           </div>
         </th>

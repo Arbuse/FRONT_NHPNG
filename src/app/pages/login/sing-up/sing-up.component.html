@@ -1,19 +1,19 @@
 <div class="carousel-footer">
   <div class="grid">
     <div class="col-12">
-      <div style="color: white" class="centered-title">Zarejestruj się</div>
+      <div style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);" class="centered-title">Zarejestruj się</div>
     </div>
     <form [formGroup]="formGroup" (ngSubmit)="register()">
       <div>
-        <label style="color: white">Nazwa użytkownika:</label>
+        <label style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Nazwa użytkownika:</label>
         <input type="text" pInputText formControlName="username">
       </div>
       <div>
-        <label style="color: white">Email:</label>
+        <label style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Email:</label>
         <input type="text" pInputText formControlName="email">
       </div>
       <div>
-        <label style="color: white">Hasło:</label>
+        <label style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Hasło:</label>
         <div class="card flex justify-content-center">
           <p-password formControlName="password">
             <ng-template pTemplate="header">

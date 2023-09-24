@@ -50,11 +50,9 @@ export class SingUpComponent {
 
       this.userService.createUser(this.user).subscribe(
         () => {
-          console.log('User registered successfully');
           this.navigateToSignIn();
         },
         error => {
-          console.error('Error registering user:', error);
         }
       );
     }

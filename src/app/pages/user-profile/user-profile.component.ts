@@ -130,7 +130,6 @@ export class UserProfileComponent implements OnInit {
 
     this.userService.updateUser(userEdit,this.userId).subscribe(
       (respoonse: any) => {
-        console.log("zedytowalem uzytkownika");
       },
       (error: any) => {
         this.showEditFailed();

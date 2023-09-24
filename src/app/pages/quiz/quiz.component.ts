@@ -50,6 +50,7 @@ export class QuizComponent implements OnInit {
   isQuizComplete: boolean = false;
   questionsCounter: number = 0;
 
+  niepoprawneOdpowiedzi: any[] = [];
   modalTitle!: string;
 
 
@@ -115,22 +116,26 @@ export class QuizComponent implements OnInit {
 
   selectAnswer(answer: string) {
     this.selectedAnswer = answer;
-    console.log(this.selectedAnswer);
   }
 
   checkAnswer() {
     const currentQuestion = this.questions[this.currentQuestionIndex];
     if (this.selectedAnswer == currentQuestion.poprawna_odpowiedz) {
       this.updatePoints();
-      console.log(this.points);
       if (this.typ == 'LM') {
         this.addPositivePointsToLearningMode();
-        console.log("dodalem wartosc dodoatnia do learningMode")
       }
+    } else {
+      // Jeśli odpowiedź jest niepoprawna, dodaj ją do tablicy niepoprawnych odpowiedzi
+      this.niepoprawneOdpowiedzi.push({
+        pytanie: currentQuestion.tresc_pytania,
+        odpowiedz: this.selectedAnswer,
+        poprawnaOdpowiedz: currentQuestion.poprawna_odpowiedz
+      });
     }
+
     if (this.typ == 'LM') {
       this.addNegativePointsToLearningMode();
-      console.log("dodalem wartosc ujemna do learningMode")
     }
     this.showResult = true;
   }
@@ -163,6 +168,7 @@ export class QuizComponent implements OnInit {
     this.resultMessage = '';
     this.points = 0;
     this.isQuizComplete = false;
+    this.niepoprawneOdpowiedzi = [];
   }
 
   backToUserProfile() {
@@ -172,7 +178,6 @@ export class QuizComponent implements OnInit {
   private addGames() {
     this.userService.addGames(this.userId).subscribe(
       (respoonse: any) => {
-        console.log("dodalem gre");
       },
       (error: any) => {
         this.showPointsFailed();
@@ -183,7 +188,6 @@ export class QuizComponent implements OnInit {
   private addPointsInLearningMode() {
     this.userService.addPointsInLearningMode(this.userId,this.learningModeStats).subscribe(
       (respoonse: any) => {
-        console.log("dodalem parametry");
       },
       (error: any) => {
         this.showPointsFailed();
@@ -194,7 +198,6 @@ export class QuizComponent implements OnInit {
   private addPointsToNoLearningMode() {
     this.userService.addPoints(this.userId, this.points).subscribe(
       (response: any) => {
-        console.log("Dodano punkty");
       },
       (error: any) => {
         this.showPointsFailed();
@@ -261,7 +264,6 @@ export class QuizComponent implements OnInit {
 
       this.isQuizComplete = true;
       this.addGames();
-      console.log("dodalem gre");
 
       if (this.points > 0 && this.typ != 'LM') {
         this.addPointsToNoLearningMode();
@@ -269,8 +271,6 @@ export class QuizComponent implements OnInit {
 
       if (this.typ == 'LM') {
         this.addPointsInLearningMode();
-        console.log("zakonczylem LM")
-        console.log(this.learningModeStats);
       }
 
     } else {

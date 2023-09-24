@@ -1,12 +1,12 @@
 .page-wrapper {
   text-align: center;
-  background-image: url("../../../assets/carousel/background3.gif");
+  background-color: #5d6065;
   background-size: cover;
   background-position: center;
   height: 100VH;
 }
 .completeQuiz {
-  padding-top: 40vh;
+  padding-top: 10vh;
 }
 .restartButton {
   display: flex;
@@ -37,6 +37,13 @@
 
 .complete-quiz-header {
   font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffff;
+
+}
+
+.complete-quiz-summary {
+  font-size: 0.9rem;
   font-weight: bold;
   color: #ffffff;
 
