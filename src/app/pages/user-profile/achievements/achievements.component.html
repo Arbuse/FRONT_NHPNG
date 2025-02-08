@@ -1,0 +1,12 @@
+<div *ngIf="achievements; else noAchievements">
+  <h2>Twoje odznaki:</h2>
+  <ul>
+    <li *ngFor="let key of achievements | keyvalue">
+      {{ key.value }}
+    </li>
+  </ul>
+</div>
+
+<ng-template #noAchievements>
+  <p>Nie masz jeszcze zadnych odznak. Zdobadź wiecej punktow!</p>
+</ng-template>

@@ -1,14 +1,12 @@
 import {RouterModule, Routes} from "@angular/router";
 import {HomeComponent} from "./pages/home/home.component";
-import {AboutComponent} from "./pages/about/about.component";
-import {OurStoryComponent} from "./pages/about/subpages/our-story/our-story.component";
-import {ContactComponent} from "./pages/about/subpages/contact/contact.component";
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import {SingInComponent} from "./pages/login/sing-in/sing-in.component";
 import {SingUpComponent} from "./pages/login/sing-up/sing-up.component";
 import {NgModule} from "@angular/core";
 import {UserProfileComponent} from "./pages/user-profile/user-profile.component";
 import {QuizComponent} from "./pages/quiz/quiz.component";
+import {AchievementsComponent} from "./pages/user-profile/achievements/achievements.component";
 
 
 const routes: Routes = [
@@ -24,6 +22,10 @@ const routes: Routes = [
 
   { path: 'sing-up',
     component: SingUpComponent,
+  },
+
+  { path: 'achievements',
+    component: AchievementsComponent
   },
 
   {

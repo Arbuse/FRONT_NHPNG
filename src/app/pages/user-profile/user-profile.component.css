@@ -3,6 +3,14 @@
   justify-content: center;
   gap: 1rem;
 }
+.achievements-button {
+  color: black;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 .header-game-mode {
   padding: 80px;

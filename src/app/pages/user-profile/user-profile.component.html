@@ -23,11 +23,14 @@
       <i class="pi pi-user-edit"></i>
     </p-button>
 
+    <p-button class="achievements-button" (click)="showAchievementsDialog()">
+      <i class="pi pi-star"></i> 🎖 Sprawdź swoje odznaki
+    </p-button>
+
     <p-button class="right-edit-button" (click)="showRankingDialog()">
       <i class="pi pi-users"></i>
     </p-button>
   </div>
-
 </div>
 
 <router-outlet></router-outlet>
@@ -122,4 +125,18 @@
       </tr>
     </ng-template>
   </p-table>
+</p-dialog>
+
+<p-dialog header="Twoje odznaki" [modal]="true" appendTo="body" [(visible)]="achievementsDialogVisible">
+  <div *ngIf="achievements; else noAchievements">
+    <ul>
+      <li *ngFor="let key of achievements | keyvalue">
+        {{ key.value }}
+      </li>
+    </ul>
+  </div>
+
+  <ng-template #noAchievements>
+    <p>Nie masz jeszcze żadnych odznak. Zdobądź więcej punktów!</p>
+  </ng-template>
 </p-dialog>

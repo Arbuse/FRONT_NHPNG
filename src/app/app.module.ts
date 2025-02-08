@@ -40,6 +40,7 @@ import {RippleModule} from "primeng/ripple";
 import { QuizComponent } from './pages/quiz/quiz.component';
 import {RadioButtonModule} from "primeng/radiobutton";
 import {ProgressBarModule} from "primeng/progressbar";
+import { AchievementsComponent } from './pages/user-profile/achievements/achievements.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import {ProgressBarModule} from "primeng/progressbar";
     SingInComponent,
     UserProfileComponent,
     QuizComponent,
+    AchievementsComponent,
   ],
   imports: [
     ReactiveFormsModule,

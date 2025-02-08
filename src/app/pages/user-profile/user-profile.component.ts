@@ -6,6 +6,7 @@ import {UserService} from "../login/user-service/user.service";
 import {User} from "../login/user-service/model/user";
 import {MessageService} from "primeng/api";
 import {UserEdit} from "../login/user-service/model/user-edit";
+import {AchievementsService} from "./service/achievements.service";
 
 @Component({
   selector: 'app-user-profile',
@@ -22,7 +23,8 @@ export class UserProfileComponent implements OnInit {
   selectedAvatar: string = '';
   userEditDialogVisible: boolean = false;
   userId!: number;
-
+  achievementsDialogVisible = false;
+  achievements: any = null;
 
   modalTitle!: string;
   search: string = '';
@@ -35,7 +37,8 @@ export class UserProfileComponent implements OnInit {
   constructor(private userProfileService: UserProfileService,
               private userService: UserService,
               private router: Router,
-              private messageService: MessageService) {
+              private messageService: MessageService,
+              private achievementsService: AchievementsService) {
   }
 
 
@@ -109,6 +112,20 @@ export class UserProfileComponent implements OnInit {
   showUserEditModal() {
     this.getCurrentUser();
     this.userEditDialogVisible = true;
+  }
+
+  showAchievementsDialog() {
+    this.getCurrentUser();
+    this.achievementsService.getUserAchievements(this.userId).subscribe(
+      (achievements: any) => {
+        this.achievements = achievements;
+      },
+      (error: any) => {
+        console.error("Błąd pobierania odznak", error);
+      }
+    );
+
+    this.achievementsDialogVisible = true;
   }
 
   filterTable() {

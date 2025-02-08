@@ -39,6 +39,7 @@ export class SingInComponent implements OnInit {
         if (userId !== null) {
           localStorage.setItem('userId', userId.toString());
           this.router.navigate(['/user-profile']);
+          this.showToastLoginSucces();
 
         } else {
           this.showToastLoginFailed();
